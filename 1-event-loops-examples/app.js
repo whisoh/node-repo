@@ -1,13 +1,9 @@
-const { readFile } = require('fs')
-
-console.log('started a first task')
-
-readFile('./content/first.txt', 'utf8', (err, result) => {
-    if (err) {
-        console.log(err)
-        return
-    }
-    console.log(result)
-    console.log('completed first task')
+const http = require('http')
+const server = http.createServer((req, res) => {
+    console.log('request event')
+    res.end('Hello World')
 })
-console.log('starting next task')
+
+server.listen(5000, () => {
+    console.log('server listening on port : 5000....')
+})
